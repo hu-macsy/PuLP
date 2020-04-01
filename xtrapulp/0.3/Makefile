@@ -1,7 +1,7 @@
 MPICXX = mpicxx
-CXXFLAGS = -fopenmp -O3 -g -std=c++11 -Wall -fPIC -O
+CXXFLAGS = -fopenmp -O3 -std=c++11 -Wall -fPIC -O
 #CXXFLAGS = -fopenmp -Ofast -Wall
-LINKFLAGS = -fopenmp -O3 -g -std=c++11 -Wall -fPIC -O
+LINKFLAGS = -fopenmp -O3 -std=c++11 -Wall -fPIC -O
 #LINKFLAGS = -fopenmp -Ofast -Wall
 TARGET = xtrapulp
 LIBTARGET = libxtrapulp.a
@@ -14,6 +14,7 @@ all: libxtrapulp $(TOCOMPILE)
 
 libxtrapulp: $(FORLIBPULP)
 	ar rvs $(LIBTARGET) *.o
+	$(MPICXX) $(CXXFLAGS) -shared *.o -o libxtrapulp.so
 
 .cpp.o:
 	$(MPICXX) $(CXXFLAGS) -c $*.cpp

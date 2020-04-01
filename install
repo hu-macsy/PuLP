@@ -22,6 +22,8 @@ if [ ! -d lib/ ]; then
 fi
 
 cp pulp/$PULPVERSION/libpulp.a lib/
+cp pulp/$PULPVERSION/libpulp.so lib/
 cp pulp/$PULPVERSION/pulp.h include/
 cp xtrapulp/$XTRAPULPVERSION/libxtrapulp.a lib/
+cp xtrapulp/$XTRAPULPVERSION/libxtrapulp.so lib/
 cp xtrapulp/$XTRAPULPVERSION/xtrapulp.h include/
